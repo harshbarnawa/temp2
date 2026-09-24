@@ -7,7 +7,7 @@
         body{
             background:#ffe5e5;
             margin:0;
-            padding:30px 0;
+            padding:25px 0;
         }
 
         h1{
@@ -23,22 +23,20 @@
         }
 
         .row{
-            display:flex;
+            display:grid;
+            grid-template-columns:270px 1fr;
             align-items:center;
             margin-bottom:28px;
         }
 
-        .label{
-            width:270px;
+        label{
             font-family:Georgia;
             font-size:28px;
-            flex-shrink:0;
         }
 
         input[type="text"],
         input[type="email"],
-        input[type="password"],
-        select{
+        input[type="password"]{
             width:565px;
             height:43px;
             box-sizing:border-box;
@@ -50,14 +48,14 @@
         }
 
         .date{
-            width:86px !important;
+            width:85px !important;
         }
 
         .year{
             width:140px !important;
         }
 
-        .code{
+        .mobilecode{
             width:65px !important;
         }
 
@@ -66,36 +64,57 @@
         }
 
         .dash{
-            font-size:25px;
             margin:0 10px;
+            font-size:22px;
         }
 
-        .dob-note{
+        .dob{
+            display:flex;
+            align-items:center;
+        }
+
+        .dob i{
             font-family:Georgia;
-            font-size:25px;
-            font-style:italic;
+            font-size:24px;
             margin-left:10px;
         }
 
-        .gender,
-        .department{
+        .gender{
             font-family:Georgia;
             font-size:25px;
+            white-space:nowrap;
         }
 
-        input[type="radio"],
-        input[type="checkbox"]{
-            width:20px;
-            height:20px;
-            margin:0 8px 0 0;
+        .gender input{
+            width:25px;
+            height:25px;
+            vertical-align:middle;
+            margin-right:8px;
+        }
+
+        .department{
+            display:flex;
+            align-items:center;
+            gap:8px;
+            font-family:Georgia;
+            font-size:25px;
+            white-space:nowrap;
         }
 
         .department input{
-            margin-left:5px;
+            width:25px;
+            height:25px;
+            margin:0;
         }
 
         select{
             width:630px;
+            height:45px;
+            font-size:18px;
+        }
+
+        input[type="file"]{
+            font-size:18px;
         }
 
         textarea{
@@ -103,10 +122,6 @@
             height:125px;
             font-size:18px;
             resize:none;
-        }
-
-        input[type="file"]{
-            font-size:18px;
         }
 
         button{
@@ -125,51 +140,60 @@
 <form>
 
     <div class="row">
-        <div class="label">Roll no. :</div>
+        <label>Roll no. :</label>
         <input type="text">
     </div>
 
     <div class="row">
-        <div class="label">Student name :</div>
-        <input type="text" placeholder="First Name" class="name">
-        <span class="dash">-</span>
-        <input type="text" placeholder="Last Name" class="name">
+        <label>Student name :</label>
+
+        <div>
+            <input type="text" placeholder="First Name" class="name">
+            <span class="dash">-</span>
+            <input type="text" placeholder="Last Name" class="name">
+        </div>
     </div>
 
     <div class="row">
-        <div class="label">Father's name :</div>
+        <label>Father's name :</label>
         <input type="text">
     </div>
 
     <div class="row">
-        <div class="label">Date of birth :</div>
-        <input type="text" placeholder="Day" class="date">
-        <span class="dash">-</span>
-        <input type="text" placeholder="Month" class="date">
-        <span class="dash">-</span>
-        <input type="text" placeholder="Year" class="year">
-        <span class="dob-note">(DD-MM-YYYY)</span>
+        <label>Date of birth :</label>
+
+        <div class="dob">
+            <input type="text" placeholder="Day" class="date">
+            <span class="dash">-</span>
+            <input type="text" placeholder="Month" class="date">
+            <span class="dash">-</span>
+            <input type="text" placeholder="Year" class="year">
+            <i>(DD-MM-YYYY)</i>
+        </div>
     </div>
 
     <div class="row">
-        <div class="label">Mobile no. :</div>
-        <input type="text" value="+91" class="code">
-        <span class="dash">-</span>
-        <input type="text" class="mobile">
+        <label>Mobile no. :</label>
+
+        <div>
+            <input type="text" value="+91" class="mobilecode">
+            <span class="dash">-</span>
+            <input type="text" class="mobile">
+        </div>
     </div>
 
     <div class="row">
-        <div class="label">Email id :</div>
+        <label>Email id :</label>
         <input type="email">
     </div>
 
     <div class="row">
-        <div class="label">Password :</div>
+        <label>Password :</label>
         <input type="password">
     </div>
 
     <div class="row">
-        <div class="label">Gender :</div>
+        <label>Gender :</label>
 
         <div class="gender">
             <input type="radio" name="gender"> Male
@@ -178,7 +202,7 @@
     </div>
 
     <div class="row">
-        <div class="label">Department :</div>
+        <label>Department :</label>
 
         <div class="department">
             <input type="checkbox"> CSE
@@ -190,7 +214,7 @@
     </div>
 
     <div class="row">
-        <div class="label">Course :</div>
+        <label>Course :</label>
 
         <select>
             <option>---------------- Select Current Course's ----------------</option>
@@ -201,51 +225,21 @@
     </div>
 
     <div class="row">
-        <div class="label">Student photo :</div>
+        <label>Student photo :</label>
         <input type="file">
     </div>
 
     <div class="row">
-        <div class="label">City :</div>
+        <label>City :</label>
         <input type="text">
     </div>
 
     <div class="row">
-        <div class="label">Address :</div>
+        <label>Address :</label>
         <textarea></textarea>
     </div>
 
     <button type="submit">Register</button>
-
-</form>
-
-</body>
-</html>
-<label>Department :</label>
-<input type="checkbox"> CSE
-<input type="checkbox"> IT
-<input type="checkbox"> ECE
-<input type="checkbox"> Civil
-<input type="checkbox"> Mech
-
-<label>Course :</label>
-<select>
-    <option>Select Current Course</option>
-    <option>B.Tech</option>
-    <option>M.Tech</option>
-    <option>BCA</option>
-</select>
-
-<label>Student photo :</label>
-<input type="file">
-
-<label>City :</label>
-<input type="text">
-
-<label>Address :</label>
-<textarea></textarea>
-
-<button type="submit">Register</button>
 
 </form>
 
